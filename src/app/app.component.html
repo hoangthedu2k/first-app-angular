@@ -31,10 +31,17 @@
 <hr>
 
 
-<h2>Danh sách bạn bè:</h2>
+<h2>Danh sách bạn bè ({{ users.length }} người):</h2>
 
-<app-user-card [userName]="'Nguyễn Văn A'" (friendRequest)="handleFriendRequest($event)"></app-user-card>
+<div style="display: flex; flex-wrap: wrap;"> @for (user of users; track user.id) {
+    
+    <app-user-card
+      [userName]="user.name"
+      (friendRequest)="handleFriendRequest($event)">
+    </app-user-card>
 
-<app-user-card [userName]="'Trần Thị B'" (friendRequest)="handleFriendRequest($event)"></app-user-card>
+  } @empty {
+    <p>Chưa có bạn bè nào trong danh sách.</p>
+  }
 
-<app-user-card [userName]="yourName" (friendRequest)="handleFriendRequest($event)"></app-user-card>
+</div>

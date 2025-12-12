@@ -13,6 +13,13 @@ export class AppComponent {
   count: number = 0;
   yourName: string = '';
   title = 'Xin chào, Tôi tên là Hoàng Thế Du';
+
+  users = [
+    { id: 1, name: 'Nguyễn Văn A', role: 'Admin' },
+    { id: 2, name: 'Trần Thị B', role: 'Editor' },
+    { id: 3, name: 'Lê Văn C', role: 'User' },
+    { id: 4, name: 'Phạm Thị D', role: 'User' }
+  ];
   increase() {
     this.count++;
     console.log('Count increased to:', this.count);
