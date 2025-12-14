@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Input, Output, EventEmitter } from '@angular/core';
+import { UserService } from '../user.service';
 @Component({
   selector: 'app-user-card',
   imports: [],
@@ -7,11 +8,15 @@ import { Input, Output, EventEmitter } from '@angular/core';
   styleUrl: './user-card.component.css'
 })
 export class UserCardComponent {
-  @Input() userName: string = 'Người dùng ẩn danh';
+  constructor(private userService: UserService) { }
+  @Input() user: any = {};
   @Output() friendRequest = new EventEmitter<string>();
   onBtnClick() {
     // Dùng cái loa (friendRequest) để phát đi tín hiệu
     // Kèm theo nội dung là tên (this.userName)
-    this.friendRequest.emit(this.userName);
+    this.friendRequest.emit(this.user.name);
+  }
+  deleteuser() {
+    this.userService.deleteUser(this.user.id);
   }
 }
