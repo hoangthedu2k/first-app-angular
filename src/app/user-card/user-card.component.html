@@ -1,6 +1,12 @@
 <div class="card">
   <h3>Thông tin thành viên</h3>
-  <p>Tên: <strong>{{ user.name }}</strong></p>
- <button (click)="onBtnClick()">Kết bạn</button>
- <button (click)="deleteuser()">Xóa bạn</button>
+  
+  <p>Tên: 
+    <a [routerLink]="['/user', user.id]" style="cursor: pointer; color: blue;">
+      <strong>{{ user.name }}</strong>
+    </a>
+  </p>
+
+  <button (click)="onBtnClick()">Kết bạn</button>
+  <button (click)="deleteuser()">Xóa</button>
 </div>
