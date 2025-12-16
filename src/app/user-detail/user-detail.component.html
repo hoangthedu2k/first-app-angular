@@ -1,1 +1,9 @@
-<p>user-detail works!</p>
+<div style="text-align: center; margin-top: 50px;">
+  <h2>Trang Chi Tiết Người Dùng</h2>
+  
+  @if (userId) {
+    <p>Bạn đang xem hồ sơ của User có ID: <strong style="color: red; font-size: 24px;">{{ userId }}</strong></p>
+  }
+  
+  <a href="/">Quay lại trang chủ</a>
+</div>
